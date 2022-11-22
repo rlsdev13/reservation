@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { BoardroomModule } from './boardroom/boardroom.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { UsersModule } from './users/users.module';
     MikroOrmModule.forRoot(),
     AuthModule,
     UsersModule,
+    BoardroomModule,
   ],
   controllers: [AppController],
   providers: [AppService],

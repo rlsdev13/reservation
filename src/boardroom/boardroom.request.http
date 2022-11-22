@@ -1,0 +1,36 @@
+@host = http://127.0.0.1:8080
+@endpoint = boardroom
+@idBoardroom = 637bf7efd598b8e0cf88ee61
+
+
+### Get all boardroom
+GET {{host}}/{{endpoint}}?limit=5&offset=0
+Content-Type: application/json
+
+### Get boardroom by ID
+GET {{host}}/{{endpoint}}/{{idBoardroom}}
+Content-Type: application/json
+
+### Create boardroom
+Post {{host}}/{{endpoint}}
+Content-Type: application/json
+
+{
+    "name" : "Sala 1",
+    "imageUrl" : "https://smartup.com.mx/wp-content/uploads/2020/09/Sala-de-Juntas-Angel%C3%B3polis-Smart-Up-e1599512142776.jpg",
+    "description" : "Sala de juntas con 14 sillas y pantalla de 70 pulgadas"
+}
+
+
+### Update boardroom
+PUT {{host}}/{{endpoint}}/{{idBoardroom}}
+Content-Type: application/json
+
+{
+    "name" : "Rafael update"
+}
+
+### Delete boardroom
+DELETE {{host}}/{{endpoint}}/{{idBoardroom}}
+Content-Type: application/json
+

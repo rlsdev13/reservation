@@ -1,6 +1,6 @@
 @host = http://127.0.0.1:8080
 @endpoint = boardroom
-@idBoardroom = 637bf7efd598b8e0cf88ee61
+@idBoardroom = 637d2f410ffa94a330d85fc5
 
 
 ### Get all boardroom
@@ -27,7 +27,7 @@ PUT {{host}}/{{endpoint}}/{{idBoardroom}}
 Content-Type: application/json
 
 {
-    "name" : "Rafael update"
+    "description" : "Sala de juntas con 14 sillas y pantalla de 70 pulgadas renovada"
 }
 
 ### Delete boardroom

@@ -1,11 +1,15 @@
 @host = http://127.0.0.1:8080
 @endpoint = users
+@idUser = 637bf7efd598b8e0cf88ee61
 
 
 ### Get all users
 GET {{host}}/{{endpoint}}?limit=5&offset=0
 Content-Type: application/json
 
+### Get user by ID
+GET {{host}}/{{endpoint}}/{{idUser}}
+Content-Type: application/json
 
 ### Create user
 Post {{host}}/{{endpoint}}
@@ -19,4 +23,16 @@ Content-Type: application/json
     "password" : "123456"
 }
 
+
+### Update user
+PUT {{host}}/{{endpoint}}/{{idUser}}
+Content-Type: application/json
+
+{
+    "name" : "Rafael update"
+}
+
+### Delete user
+DELETE {{host}}/{{endpoint}}/{{idUser}}
+Content-Type: application/json
 

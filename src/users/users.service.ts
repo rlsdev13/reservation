@@ -55,6 +55,27 @@ export class UsersService {
     }
 
     /**
+     * function to find an User by Email
+     * 
+     * @param idUser id of the user
+     * @returns the user if exist
+     */
+     async getUserByEmail( email : string ) : Promise<Users>{
+        try {
+            const user = await this.usersRepo.findOne({ email , deleted : false });
+    
+            if(!user){
+                throw new Error('User not found');
+            }
+    
+            return user;
+            
+        } catch (error) {
+            throw new NotFoundException();
+        }
+    }
+
+    /**
      * function for create a new user and saved
      * 
      * @param user 

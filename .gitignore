@@ -39,3 +39,6 @@ lerna-debug.log*
 
 #mikro-orm
 /temp
+
+#serverless
+/layer/node_modules

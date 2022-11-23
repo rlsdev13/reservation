@@ -1,25 +1,27 @@
 @host = http://127.0.0.1:8080
 @endpoint = users
 @idUser = 637bf7efd598b8e0cf88ee61
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkxODc2NzUsImV4cCI6MTY2OTE4OTQ3NX0.jCieF_2DNl5FRbImvc8Q6tswL1f1aDDMnoD-3Qcp45U
 
 ### Get all users
 GET {{host}}/{{endpoint}}?limit=5&offset=0
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 ### Get user by ID
 GET {{host}}/{{endpoint}}/{{idUser}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 ### Create user
 Post {{host}}/{{endpoint}}
 Content-Type: application/json
 
 {
-    "name" : "Rafael",
+    "name" : "User2",
     "lastNameF" : "Ledesma",
     "lastNameM" : "Soto",
-    "email" : "rafael@gmail.com",
+    "email" : "user2@gmail.com",
     "password" : "123456"
 }
 
@@ -27,6 +29,7 @@ Content-Type: application/json
 ### Update user
 PUT {{host}}/{{endpoint}}/{{idUser}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
     "name" : "Rafael update"
@@ -35,4 +38,5 @@ Content-Type: application/json
 ### Delete user
 DELETE {{host}}/{{endpoint}}/{{idUser}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 

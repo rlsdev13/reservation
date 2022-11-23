@@ -1,19 +1,23 @@
 @host = http://127.0.0.1:8080
 @endpoint = boardroom
 @idBoardroom = 637d2f410ffa94a330d85fc5
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkxODc2NzUsImV4cCI6MTY2OTE4OTQ3NX0.jCieF_2DNl5FRbImvc8Q6tswL1f1aDDMnoD-3Qcp45U
 
 
 ### Get all boardroom
 GET {{host}}/{{endpoint}}?limit=5&offset=0
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 ### Get boardroom by ID
 GET {{host}}/{{endpoint}}/{{idBoardroom}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 ### Create boardroom
 Post {{host}}/{{endpoint}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
     "name" : "Sala 1",
@@ -25,12 +29,13 @@ Content-Type: application/json
 ### Update boardroom
 PUT {{host}}/{{endpoint}}/{{idBoardroom}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
-    "description" : "Sala de juntas con 14 sillas y pantalla de 70 pulgadas renovada"
+    "description" : "Sala de juntas con 14 sillas y pantalla de 70 pulgadas"
 }
 
 ### Delete boardroom
 DELETE {{host}}/{{endpoint}}/{{idBoardroom}}
 Content-Type: application/json
-
+Authorization: bearer {{token}}

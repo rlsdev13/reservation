@@ -1,15 +1,17 @@
 @host = http://127.0.0.1:8080
 @endpoint = reservations
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkxODc2NzUsImV4cCI6MTY2OTE4OTQ3NX0.jCieF_2DNl5FRbImvc8Q6tswL1f1aDDMnoD-3Qcp45U
 @idBoardroom = 637d2f410ffa94a330d85fc5
 @idUser = 637bf7efd598b8e0cf88ee61
 
 ### Create boardroom
 Post {{host}}/{{endpoint}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
     "idBoardroom" : "637d2f410ffa94a330d85fc5",
     "idUser" : "637bf7efd598b8e0cf88ee61",
-    "dateStart" : "2022-12-20T03:00:00.000Z",
-    "dateEnd" : "2022-12-20T05:00:00.000Z"
+    "dateStart" : "2022-12-22T03:00:00.000Z",
+    "dateEnd" : "2022-12-22T05:00:00.000Z"
 }

@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { BoardroomService } from './boardroom.service';
 import { CreateBoardroomDto, UpdateBoardroomDto } from './dtos/boardroom.dto';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('boardroom')
+@UseGuards(JwtAuthGuard)
 export class BoardroomController {
 
     constructor( private readonly boardroomService : BoardroomService ){}

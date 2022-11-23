@@ -2,7 +2,6 @@ service: reservations
 
 plugins:
   - serverless-offline
-  - serverless-webpack
   - serverless-plugin-common-excludes
 
 useDotenv: true
@@ -30,3 +29,92 @@ layers:
     path: layer
     description: "Dependencies for reservation app"
     
+functions:
+  
+  auth:
+    handler: dist/auth/serverless.handler
+    url: true
+    layers:
+      - { Ref : ReservationDependenciesLambdaLayer }
+    package:
+      patterns:
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!.eslintrc.js'
+        - '!.prettierrc'
+        - '!README.md'
+        - '!nest-cli.json'
+        - '!package-lock.json'
+        - '!package.json'
+        - '!tsconfig.build.json'
+        - '!tsconfig.json' 
+  
+  users:
+    handler: dist/users/serverless.handler
+    url: true
+    layers:
+      - { Ref : ReservationDependenciesLambdaLayer }
+    package:
+      patterns:
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!.eslintrc.js'
+        - '!.prettierrc'
+        - '!README.md'
+        - '!nest-cli.json'
+        - '!package-lock.json'
+        - '!package.json'
+        - '!tsconfig.build.json'
+        - '!tsconfig.json' 
+
+  boardrooms:
+    handler: dist/boardroom/serverless.handler
+    url: true
+    layers:
+      - { Ref : ReservationDependenciesLambdaLayer }
+    package:
+      patterns:
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!.eslintrc.js'
+        - '!.prettierrc'
+        - '!README.md'
+        - '!nest-cli.json'
+        - '!package-lock.json'
+        - '!package.json'
+        - '!tsconfig.build.json'
+        - '!tsconfig.json' 
+  
+  reservations:
+    handler: dist/reservations/serverless.handler
+    url: true
+    layers:
+      - { Ref : ReservationDependenciesLambdaLayer }
+    package:
+      patterns:
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!node_modules/**'
+        - '!src/**'
+        - '!test/**'
+        - '!.eslintrc.js'
+        - '!.prettierrc'
+        - '!README.md'
+        - '!nest-cli.json'
+        - '!package-lock.json'
+        - '!package.json'
+        - '!tsconfig.build.json'
+        - '!tsconfig.json' 

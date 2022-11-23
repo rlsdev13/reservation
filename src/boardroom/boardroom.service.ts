@@ -1,6 +1,6 @@
 import { EntityRepository, ObjectId } from '@mikro-orm/mongodb';
 import { InjectRepository } from '@mikro-orm/nestjs';
-import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { Boardrooms } from './boardroom.entity';
 import { CreateBoardroomDto, UpdateBoardroomDto } from './dtos/boardroom.dto';
 
@@ -21,6 +21,7 @@ export class BoardroomService {
             await this.boardroomRepo.persistAndFlush(newBoardroom);
             return newBoardroom;
         } catch (error) {
+            console.log(error);
             throw new InternalServerErrorException();
         }
     }
@@ -33,7 +34,7 @@ export class BoardroomService {
      * @returns an object with an boardrooms array and the total of users 
      */
     async getAllBoardrooms(limit: number = 5, offset: number = 0): Promise<{ boardrooms: Boardrooms[], total: number }> {
-        try {
+        // try {
             const [boardrooms, total] = await Promise.all([
                 this.boardroomRepo.find({ deleted: false }, 
                     { limit, offset, 
@@ -60,9 +61,10 @@ export class BoardroomService {
                 boardrooms,
                 total
             }
-        } catch (error) {
-            throw new InternalServerErrorException();
-        }
+        // } catch (error) {
+            // console.log(error);
+            // throw new HttpException(error,HttpStatus.INTERNAL_SERVER_ERROR);
+        // }
     }
 
     /**
@@ -98,7 +100,7 @@ export class BoardroomService {
 
             return boardroom;
         } catch (error) {
-            throw new NotFoundException()
+            throw new HttpException(error,HttpStatus.NOT_FOUND);
         }
     }
 
@@ -122,7 +124,7 @@ export class BoardroomService {
 
             return boardroom;
         } catch (error) {
-            throw new NotFoundException();
+            throw new HttpException(error,HttpStatus.NOT_FOUND);
         }
     }
 
@@ -145,7 +147,7 @@ export class BoardroomService {
 
             return boardroom;
         } catch (error) {
-            throw new NotFoundException();
+            throw new HttpException(error,HttpStatus.NOT_FOUND);
         }
     }
 

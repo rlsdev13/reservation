@@ -8,6 +8,8 @@ import { ReservationsController } from './reservations.controller';
 import { Reservations } from './reservations.entity';
 import { JwtStrategy } from '../auth/jwt.strategy';
 import { UsersModule } from '../users/users.module';
+import { Users } from '../users/users.entity';
+import { Boardrooms } from '../boardroom/boardroom.entity';
 
 @Module({
   imports: [
@@ -17,10 +19,17 @@ import { UsersModule } from '../users/users.module';
       metadataProvider : ReflectMetadataProvider,
       discovery : {
         disableDynamicFileAccess : true
-      }
+      },
+      entities : [
+        Reservations,
+        Users,
+        Boardrooms
+      ]
     }),
     MikroOrmModule.forFeature([
-      Reservations
+      Reservations,
+      Users,
+      Boardrooms
     ]),
     PassportModule,
     UsersModule

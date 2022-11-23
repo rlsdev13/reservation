@@ -1,4 +1,5 @@
-@host = http://127.0.0.1:8080
+# @host = http://127.0.0.1:8080
+@host = https://72julluarvwowjjvscjgqnezvi0iredt.lambda-url.us-east-1.on.aws
 @endpoint = auth
 
 ### Login

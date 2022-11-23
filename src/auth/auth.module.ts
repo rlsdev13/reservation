@@ -9,6 +9,7 @@ import { AuthController } from './auth.controller';
 import { UsersModule } from '../users/users.module';
 import { Users } from '../users/users.entity';
 import { Boardrooms } from '../boardroom/boardroom.entity';
+import { Reservations } from '../reservations/reservations.entity';
 
 @Module({
   imports : [
@@ -21,8 +22,9 @@ import { Boardrooms } from '../boardroom/boardroom.entity';
         disableDynamicFileAccess : true
       },
       entities : [
-        Users,
-        Boardrooms
+        Boardrooms,
+        Reservations,
+        Users
       ]
     }),
     UsersModule,
@@ -31,6 +33,11 @@ import { Boardrooms } from '../boardroom/boardroom.entity';
       secret : process.env.JWT_SECRET,
       signOptions : { expiresIn : process.env.JWT_TTL }
     }),
+    MikroOrmModule.forFeature([
+      Boardrooms,
+      Reservations,
+      Users
+    ])
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],

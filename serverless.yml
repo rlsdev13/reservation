@@ -3,8 +3,16 @@ service: reservations
 plugins:
   - serverless-offline
   - serverless-plugin-common-excludes
+  - serverless-webpack
 
 useDotenv: true
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: false 
+    packager: 'npm'
+    excludeFiles: node_modules/*
 
 provider:
   name: aws

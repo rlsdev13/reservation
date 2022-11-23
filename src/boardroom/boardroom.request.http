@@ -1,7 +1,8 @@
-@host = http://127.0.0.1:8080
+# @host = http://127.0.0.1:8080
+@host = https://cva4zfuun6hocdhy5b34xwniam0wmhqe.lambda-url.us-east-1.on.aws
 @endpoint = boardroom
 @idBoardroom = 637d2f410ffa94a330d85fc5
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkyMjQxNzMsImV4cCI6MTY2OTIyNDIzM30.gtbDjwl8UqRo2cVSLSW27HIaXFSMR8n3uI1NKudyzp0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkyMzUzNTgsImV4cCI6MTY2OTIzNTY1OH0.XymXFR3OFpqpCd2CdEgtAB9evH-R6yxok69cMFKkIY4
 
 
 ### Get all boardroom

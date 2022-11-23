@@ -1,5 +1,6 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { Collection, Entity, OneToMany, PrimaryKey, Property } from '@mikro-orm/core';
 import { ObjectId } from '@mikro-orm/mongodb';
+import { Reservations } from 'src/reservations/reservations.entity';
 
 @Entity({ tableName : 'boardrooms' })
 export class Boardrooms{
@@ -24,4 +25,7 @@ export class Boardrooms{
 
     @Property({ type : 'boolean', default : 'false' })
     deleted : boolean = false;
+
+    @OneToMany( () => Reservations, reservation => reservation.idBoardroom )
+    reservation = new Collection<Reservations>(this);
 }

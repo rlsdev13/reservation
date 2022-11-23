@@ -35,7 +35,24 @@ export class BoardroomService {
     async getAllBoardrooms(limit: number = 5, offset: number = 0): Promise<{ boardrooms: Boardrooms[], total: number }> {
         try {
             const [boardrooms, total] = await Promise.all([
-                this.boardroomRepo.find({ deleted: false }, { limit, offset }),
+                this.boardroomRepo.find({ deleted: false }, 
+                    { limit, offset, 
+                        fields : [
+                            'name',
+                            'description',
+                            'imageUrl',
+                            {reservation : [
+                                'dateStart',
+                                'dateEnd',
+                                'idUser',
+                                {idUser : [
+                                    'name',
+                                    'email'
+                                ]}
+                            ]},
+                            
+                        ] 
+                    }),
                 this.boardroomRepo.count({ deleted: false })
             ]);
 
@@ -56,7 +73,24 @@ export class BoardroomService {
      */
     async getBoardroomById( idBoardroom : string ): Promise<Boardrooms>{
         try {
-            const boardroom = await this.boardroomRepo.findOne({ _id : new ObjectId(idBoardroom), deleted : false })
+            const boardroom = await this.boardroomRepo.findOne({ _id : new ObjectId(idBoardroom), 
+                deleted : false },{
+                    fields : [
+                        'name',
+                        'description',
+                        'imageUrl',
+                        {reservation : [
+                            'dateStart',
+                            'dateEnd',
+                            'idUser',
+                            {idUser : [
+                                'name',
+                                'email'
+                            ]}
+                        ]},
+                        
+                    ] 
+                })
 
             if( !boardroom ){
                 throw new Error('Boardroom not found');

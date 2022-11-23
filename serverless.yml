@@ -1,0 +1,32 @@
+service: reservations
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+  - serverless-plugin-common-excludes
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    NODE_PATH: "./:/opt/node_modules"
+    MIKRO_ORM_TYPE : ${env:MIKRO_ORM_TYPE}
+    MIKRO_ORM_CLIENT_URL : ${env:MIKRO_ORM_CLIENT_URL}
+    MIKRO_ORM_DB_NAME : ${env:MIKRO_ORM_DB_NAME}
+    MIKRO_ORM_DISCOVERY_WARN_WHEN_NO_ENTITIES : ${env:MIKRO_ORM_DISCOVERY_WARN_WHEN_NO_ENTITIES}
+    IGNORE_EXP_JWT : ${env:IGNORE_EXP_JWT}
+    JWT_SECRET : ${env:JWT_SECRET}
+    JWT_TTL : ${env:JWT_TTL}
+    TIME_MAX_RESERV_SECONDS : ${env:TIME_MAX_RESERV_SECONDS}
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
+layers:
+  ReservationDependencies:
+    path: layer
+    description: "Dependencies for reservation app"
+    

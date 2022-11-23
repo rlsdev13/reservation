@@ -1,5 +1,5 @@
 # @host = http://127.0.0.1:8080
-@host = https://qpieedroig236qnrmmfmvbranm0cmkuu.lambda-url.us-east-1.on.aws
+@host = https://xnblflufjgj5inky64bpgn5lyy0imrwf.lambda-url.us-east-1.on.aws
 @endpoint = reservations
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkxODc2NzUsImV4cCI6MTY2OTE4OTQ3NX0.jCieF_2DNl5FRbImvc8Q6tswL1f1aDDMnoD-3Qcp45U
 @idBoardroom = 637d2f410ffa94a330d85fc5

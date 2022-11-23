@@ -1,5 +1,5 @@
 # @host = http://127.0.0.1:8080
-@host = https://sackzcsxeiwb5vm5yabcpp7vw40fvrwi.lambda-url.us-east-1.on.aws
+@host = https://5ysrhjk7yhwuyftpv35nrib5qu0elkoq.lambda-url.us-east-1.on.aws
 @endpoint = users
 @idUser = 637bf7efd598b8e0cf88ee61
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkyMjkzNDUsImV4cCI6MTY2OTIyOTY0NX0.ydle-SdfRDUPbegJV9LCX_zrb7dQL2CEF1BuqoBdt3A

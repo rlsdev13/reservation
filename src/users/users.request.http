@@ -1,7 +1,7 @@
 @host = http://127.0.0.1:8080
 @endpoint = users
 @idUser = 637bf7efd598b8e0cf88ee61
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkxODc2NzUsImV4cCI6MTY2OTE4OTQ3NX0.jCieF_2DNl5FRbImvc8Q6tswL1f1aDDMnoD-3Qcp45U
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzdiZjdlZmQ1OThiOGUwY2Y4OGVlNjEiLCJpYXQiOjE2NjkyMjQ0OTIsImV4cCI6MTY2OTIyNDc5Mn0.STfqNfSTdtbbxH9hIPW812Y8TFPTKyGIEzAt9VRkX1c
 
 ### Get all users
 GET {{host}}/{{endpoint}}?limit=5&offset=0
